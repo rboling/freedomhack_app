@@ -58,5 +58,6 @@ module FreedomhackApp
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    config.assets.precompile += ['bootstrap.js.coffee','home.css.scss', 'users.css.scss', 'scaffolds.css.scss', 'bootstrap_and_overrides.css','application.js', 'application.css', 'swfObject.js']
   end
 end
