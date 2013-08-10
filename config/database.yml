@@ -21,7 +21,7 @@
 #  username: rboling
 #  password: beethoven3
 
-development:
+production:
   adapter: postgresql
   host: localhost
   username: user
