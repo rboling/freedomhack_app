@@ -28,7 +28,7 @@ gem 'authlogic'
 
 gem 'twilio-ruby'
 
-#gem "therubyracer"
+gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
 
