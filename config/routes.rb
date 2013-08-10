@@ -1,4 +1,18 @@
 FreedomhackApp::Application.routes.draw do
+  resources :text_messages
+
+  get "home/index"
+
+  get "home/about"
+
+  get "user_sessions/new"
+
+  get "user_sessions/destroy"
+
+  root :to => "home#index"
+
+  resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
