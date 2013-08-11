@@ -133,3 +133,124 @@ Connecting to database specified by database.yml
   [1m[35mSQL (0.6ms)[0m  INSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", nil], ["created_at", Sun, 11 Aug 2013 00:27:29 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 00:27:29 UTC +00:00]]
   [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
   [1m[35m (0.5ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "text_messages" 
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (46.2ms)[0m  INSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:31:49 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:31:49 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "text_messages" 
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:31:49 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:31:49 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "text_messages" 
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (36.7ms)[0m  INSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:32:01 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:32:01 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "text_messages" 
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:32:01 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:32:01 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "text_messages" 
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (36.8ms)[0m  INSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:32:24 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:32:24 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "text_messages" 
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:32:24 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:32:24 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "text_messages" 
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (36.7ms)[0m  INSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:33:03 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:33:03 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "text_messages" 
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:33:03 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:33:03 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (6.9ms)[0m  [1mINSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:36:54 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:36:54 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "text_messages" [0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:36:54 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:36:54 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "text_messages" [0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "text_messages" 
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (36.5ms)[0m  INSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:38:01 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:38:01 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "text_messages" 
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:38:02 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:38:02 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "text_messages" 
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (35.9ms)[0m  INSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:39:09 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:39:09 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "text_messages" 
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:39:09 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:39:09 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "text_messages" 
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (37.7ms)[0m  INSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:39:31 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:39:31 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "text_messages" 
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "text_messages" ("content", "created_at", "receiver", "sender", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", nil], ["created_at", Sun, 11 Aug 2013 02:39:31 UTC +00:00], ["receiver", nil], ["sender", nil], ["updated_at", Sun, 11 Aug 2013 02:39:31 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK

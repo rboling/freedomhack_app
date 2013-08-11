@@ -1,6 +1,6 @@
 class TextMessage < ActiveRecord::Base
   attr_accessible :content, :receiver, :sender
-  attr_accessor :content, :receiver, :sender
+  attr_accessor :content, :receiver, :sender, :secret_code
   def twilio_sid
   	"AC50070372767bdf26a090b08007bba07f"
   end
@@ -17,12 +17,18 @@ class TextMessage < ActiveRecord::Base
   	"2245209581"
   end
 
+  def self.generate_random_string
+  	beginning_of_string = 0...6
+  	the_string = beginning_of_string.map{(65 + rand(26)).chr}
+  	return the_string.join
+  end
+
   def send_text_message
   	@twilio_client = Twilio::REST::Client.new(twilio_sid, twilio_token)
   	@twilio_client.account.sms.messages.create(
   	  :from => "+1#{twilio_phone_number}",
   	  :to => receiver,
-  	  :body => content
-  	)
+  	  :body => (content)  	
+  	  )
   end
 end

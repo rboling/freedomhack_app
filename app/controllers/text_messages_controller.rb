@@ -12,9 +12,13 @@ class TextMessagesController < ApplicationController
       from_number = params["From"]
       message_body = params["Body"]
       the_sender = TextMessage.the_twilio_phone_number
-      new_message = TextMessage.create({ :content => message_body,
+      secret_code = TextMessage.generate_random_string
+      new_message_body = message_body + " " + secret_code
+      new_message = TextMessage.create({ :content => new_message_body,
       :receiver => from_number,
-      :sender => the_sender})
+      :sender => the_sender,
+      :secret_code => secret_code
+    })
       new_message.send_text_message
     rescue
       puts "\n\n\n\ndidn't get there\n\n\n\n"
@@ -52,7 +56,8 @@ class TextMessagesController < ApplicationController
   # POST /text_messages.json
   def create
     @text_message = TextMessage.new(params[:text_message])
-
+    @text_message.secret_code = TextMessage.generate_random_string
+    puts "#{@text_message.secret_code}"
     respond_to do |format|
       if @text_message.save
         format.html { redirect_to @text_message, notice: 'Text message was successfully created.' }

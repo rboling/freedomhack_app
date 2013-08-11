@@ -28,6 +28,11 @@ describe TextMessage do
     foo = TextMessage.create(@sample_text_message)
   	foo.send_text_message
   end
+
+  it "should return a string of length 6" do
+  	bash = TextMessage.generate_random_string
+  	bash.length.should == 6
+  end
 =begin
   it "should not save if first name is nil" do
     lambda {  
