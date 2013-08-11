@@ -7,32 +7,27 @@ class TextMessagesController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @text_messages }
     end
+
     begin
+      reassurance_message = "We'll put you in touch shortly"
       from_number = params["From"]
       message_body = params["Body"]
       the_sender = TextMessage.the_twilio_phone_number 
-      puts "\n\n\nmessage body \n\n\n\n"
-      puts message_body
-      puts "\n\n\n\n\nARE WE BREAKING\n\n\n\n\n"
-      puts TextMessage.does_another_message_exist(message_body)
+      refined_number = TextMessage.verify_incoming_phone_number(from_number)
+      location = TextMessage.get_location(message_body)
       if TextMessage.does_another_message_exist(message_body) != false
-        puts "\n\n\nin here \n\n\n"
         secret_code = TextMessage.does_another_message_exist(message_body)
         new_message_body = message_body + " " + secret_code
+        user_to_use = User.where(:phone_number => (refined_number)).first
+        user_id = secret_code_find(user_to_use, secret_code)
+        TextMessage.send_confirmation_method(refined_number, the_sender, reassurance_message)
       else
-        puts "\n\nnot in here\n\n"
         secret_code = TextMessage.generate_random_string
         new_message_body = "You have just made a new message" + " " + secret_code
+        user_id = (User.where(:phone_number => (refined_number)).first).id
       end
       #secret_code = TextMessage.generate_random_string
       #new_message_body = message_body + " " + secret_code
-      refined_number = TextMessage.verify_incoming_phone_number(from_number)
-      puts "\n\n\nrefined number\n\n\n"
-      puts refined_number
-      puts refined_number.class
-      user_id = (User.where(:phone_number => (refined_number)).first).id
-      location = TextMessage.get_location(message_body)
-      puts "\n\n\n\ndo I get after here bro\n\n\n"
       new_message = TextMessage.create({ :content => new_message_body,
       :receiver => from_number,
       :sender => the_sender,

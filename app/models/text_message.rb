@@ -78,6 +78,15 @@ class TextMessage < ActiveRecord::Base
 	  end
   end
 
+  def self.send_confirmation_method(refined_number, the_sender, reassurance_message)
+  	@twilio_client_two = Twilio::REST::Client.new(twilio_sid, twilio_token)
+  	@twilio_client_two.account.sms.messages.create(
+  	  :from => "+1#{twilio_phone_number}",
+  	  :to => refined_number,
+  	  :body => (reassurance_message)  	
+  	  )   	
+  end
+
   def self.does_another_message_exist(text_message_content)
   	initial_map = TextMessage.all.select{|x| !x.secret_code.nil?}
   	foo = initial_map.select{|x| /#{x.secret_code}/.match(text_message_content) != nil}
@@ -93,6 +102,7 @@ class TextMessage < ActiveRecord::Base
   	  end
   	end
   end
+
 
   def return_closest_user(location)
   	raise NotImplementedError
