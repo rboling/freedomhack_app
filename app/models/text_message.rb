@@ -54,7 +54,7 @@ class TextMessage < ActiveRecord::Base
   	refined_texts.each do |message|
   		  puts "secret_code"
   	  	puts message.secret_code
-	  	if message.secret_code == the_code
+	  	if message.secret_code == the_code and message.user_id != nil
 	  		puts "I made it"
 	  		puts "the code in made it"
 	  		puts message.secret_code
