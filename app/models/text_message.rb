@@ -48,12 +48,10 @@ class TextMessage < ActiveRecord::Base
   def self.secret_code_find(the_user, the_code)
   	code_found = false
   	refined_user_array = User.all.select{|x| x.id != the_user.id}
-  	puts "\n\nREFINED ARRAY\n\n"
-  	puts refined_user_array
   	refined_user_array.each do |user|
   	  text_messages = user.text_messages
   	  text_messages.each do |message|
-  	  	puts "\n\n\nSECRET CODE\n\n\n\n"
+  	  	puts "SECRET CODE"
   	  	puts message.secret_code
   	  	if message.secret_code == the_code
   	  	  code_found = true
@@ -73,9 +71,6 @@ class TextMessage < ActiveRecord::Base
 	  	new_string = ''
 	  	j = index
 	  	while new_string.length < 6 
-	  		puts "\n\n\n\nDUDEEEEEE\n\n\n\n\n"
-	  		puts "\n\nnew string\n\n\n"
-	  		puts new_string
 	  	  new_string += text_message[j]
 	  	  j += 1
 	  	end
