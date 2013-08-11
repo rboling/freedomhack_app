@@ -38,4 +38,11 @@ class TextMessage < ActiveRecord::Base
   	  :body => (content)  	
   	  )
   end
+  def self.get_location(context)
+  	begin
+      return context.split("@")[-1]
+    rescue
+      return nil
+    end
+  end
 end

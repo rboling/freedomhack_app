@@ -13,6 +13,7 @@ describe TextMessage do
       :secret_code => foobash
   	}
     @test_number = "+122222"
+    @the_string_to_split = "foooo@bash"
   end
   # what does it do  again?  It (no pun intended) takes a block
   #which is executed in the context of the appropriate subclass
@@ -40,6 +41,10 @@ describe TextMessage do
   it "should chop off the first two numbers" do
     foo = TextMessage.verify_incoming_phone_number(@test_number)
     foo.should == "22222"
+  end
+  it "should return the last part of the string" do
+    foo = TextMessage.get_location(@the_string_to_split)
+    foo.should == "bash"  
   end
 =begin
   it "should not save if first name is nil" do

@@ -2,7 +2,7 @@ class TextMessagesController < ApplicationController
   # GET /text_messages
   # GET /text_messages.json
   def index
-    @text_messages = TextMessage.all
+    @text_messages = TextMe7ssage.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -19,12 +19,14 @@ class TextMessagesController < ApplicationController
       puts refined_number
       puts refined_number.class
       user_id = (User.where(:phone_number => (refined_number)).first).id
+      location = TextMessage.get_location(context)
       puts "\n\n\n\ndo I get after here bro\n\n\n"
       new_message = TextMessage.create({ :content => new_message_body,
       :receiver => from_number,
       :sender => the_sender,
       :secret_code => secret_code,
-      :user_id => user_id
+      :user_id => user_id,
+      :location => location
     })
       new_message.send_text_message
     rescue
