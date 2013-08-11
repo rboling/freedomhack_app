@@ -23,7 +23,7 @@ class TextMessagesController < ApplicationController
         TextMessage.send_confirmation_method(refined_number, the_sender, reassurance_message)
       else
         secret_code = TextMessage.generate_random_string
-        new_message_body = "You have just made a new message" + " " + secret_code
+        new_message_body = "You have just made a new message.  Reply back with the code at the end for more info" + " " + secret_code
         user_id = (User.where(:phone_number => (refined_number)).first).id
       end
       #secret_code = TextMessage.generate_random_string
