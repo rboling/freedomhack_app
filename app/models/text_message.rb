@@ -50,8 +50,10 @@ class TextMessage < ActiveRecord::Base
   	user_to_return = nil
   	refined_texts = TextMessage.select{|x| x.user_id != the_user.id}
   	refined_texts.each do |message|
+  		  puts "secret_code"
   	  	puts message.secret_code
 	  	if message.secret_code == the_code
+	  		puts "I made it"
 	  	  code_found = true
 	  	  user_to_return = message.user_id
 	  	end
