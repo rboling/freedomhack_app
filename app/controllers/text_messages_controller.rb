@@ -29,6 +29,11 @@ class TextMessagesController < ApplicationController
           puts "\n\n\n\nBASHBASBASHBASH\n\n\n\n"
         else
           puts "\n\n\n\nFOFOFOFOFOFOFOFOF\n\n\n\n\n"
+          puts location
+          puts location.class
+          if location == ""
+            puts "\n\n\nDANCE ALL NIGHT\n\n"
+          end
         end
         TextMessage.find_a_response(location, secret_code)
         puts "\n\n\n\nDID WE FIND A RESPONSE\n\n\n\n"
