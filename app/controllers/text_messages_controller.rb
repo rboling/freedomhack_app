@@ -2,8 +2,7 @@ class TextMessagesController < ApplicationController
   # GET /text_messages
   # GET /text_messages.json
   def index
-    @text_messages = TextMe7ssage.all
-does_another_message_exist(text_message_content)
+    @text_messages = TextMessage.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @text_messages }
