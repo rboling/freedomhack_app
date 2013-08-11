@@ -12,6 +12,7 @@ describe TextMessage do
   		:sender => "2245209581",
       :secret_code => foobash
   	}
+    @test_number = "+122222"
   end
   # what does it do  again?  It (no pun intended) takes a block
   #which is executed in the context of the appropriate subclass
@@ -34,6 +35,11 @@ describe TextMessage do
   it "should return a string of length 6" do
   	bash = TextMessage.generate_random_string
   	bash.length.should == 6
+  end
+
+  it "should chop off the first two numbers" do
+    foo = TextMessage.verify_incoming_phone_number(@test_number)
+    foo.should == "22222"
   end
 =begin
   it "should not save if first name is nil" do

@@ -18,6 +18,12 @@ class TextMessage < ActiveRecord::Base
   	"2245209581"
   end
 
+  def self.verify_incoming_phone_number(phone_number)
+    phone_number.slice!(0)
+    phone_number.slice!(0)
+    return phone_number
+  end
+
   def self.generate_random_string
   	beginning_of_string = 0...6
   	the_string = beginning_of_string.map{(65 + rand(26)).chr}
