@@ -15,16 +15,18 @@ class TextMessagesController < ApplicationController
       the_sender = TextMessage.the_twilio_phone_number 
       refined_number = TextMessage.verify_incoming_phone_number(from_number)
       location = TextMessage.get_location(message_body)
-      if TextMessage.does_another_message_exist(message_body) != false
-        secret_code = TextMessage.does_another_message_exist(message_body)
+      user_to_use = User.where(:phone_number => (refined_number)).first
+      if TextMessage.does_another_message_exist(message_body, user_to_use.id) != false
+        secret_code = TextMessage.does_another_message_exist(message_body, user_to_use.id)
         new_message_body = message_body
-        user_to_use = User.where(:phone_number => (refined_number)).first
         user_id = TextMessage.secret_code_find(user_to_use, secret_code)
+        the_phone_number = User.where(:id => user_id).first.phone_number
         TextMessage.send_confirmation_method(refined_number, the_sender, reassurance_message)
       else
         secret_code = TextMessage.generate_random_string
         new_message_body = "You have just made a new message.  Reply back with the code at the end for more info" + " " + secret_code
         user_id = (User.where(:phone_number => (refined_number)).first).id
+        the_phone_number = from_number
         if location.nil?
           puts "\n\n\n\nBASHBASBASHBASH\n\n\n\n"
         else
@@ -41,7 +43,7 @@ class TextMessagesController < ApplicationController
       #secret_code = TextMessage.generate_random_string
       #new_message_body = message_body + " " + secret_code
       new_message = TextMessage.create({ :content => new_message_body,
-      :receiver => from_number,
+      :receiver => the_phone_number,
       :sender => the_sender,
       :secret_code => secret_code,
       :user_id => user_id,
