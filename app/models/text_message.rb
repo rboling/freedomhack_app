@@ -104,16 +104,18 @@ class TextMessage < ActiveRecord::Base
   end
 
   def self.find_a_response(location, secret_code)
-  	the_user = User.where(:location => location).first
-  	the_number = the_user.phone_number
-  	body = "A request has been made.  Make sure to reply with this code" + " " + secret_code
-  	@twilio_client_three = Twilio::REST::Client.new(twilio_sid, twilio_token)
-  	@twilio_client_three.account.sms.messages.create(
-  	  :from => "+1#{twilio_phone_number}",
-  	  :to => the_number,
-  	  :body => (body)  	
-  	  )   	 	
-  	
+  	the_user = User.where(:location => location)
+  	non_nil_user = the_user.find{|x| x.phone_number != nil}
+  	if !non_nil_user.nil?
+  	the_number = non_nil_user.phone_number
+	  	body = "A request has been made.  Make sure to reply with this code" + " " + secret_code
+	  	@twilio_client_three = Twilio::REST::Client.new(twilio_sid, twilio_token)
+	  	@twilio_client_three.account.sms.messages.create(
+	  	  :from => "+1#{twilio_phone_number}",
+	  	  :to => the_number,
+	  	  :body => (body)  	
+	  	  ) 
+	  end	 	
   end
 
 
