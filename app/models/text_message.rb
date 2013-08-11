@@ -68,7 +68,7 @@ class TextMessage < ActiveRecord::Base
   	if !text_message.nil?
 	  	new_string = ''
 	  	j = index
-	  	while text_message[j] != " "
+	  	while new_string.length < 6 
 	  		puts "\n\n\n\nDUDEEEEEE\n\n\n\n\n"
 	  		puts "\n\nnew string\n\n\n"
 	  		puts new_string
