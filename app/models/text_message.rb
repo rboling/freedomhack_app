@@ -83,8 +83,13 @@ class TextMessage < ActiveRecord::Base
   	if foo.length == 0
   	  return false
   	else
-  	  the_index = (/#{foo[0].secret_code}/ =~ (text_message_content))
-  	  return self.reconstruct_secret_code(text_message_content, the_index)
+  		find_non_nill = foo.select{|x| x.content != nil}
+  		if find_non_nill.length == 0
+  			return false
+  		else
+  	    the_index = (/#{find_non_nill[0].secret_code}/ =~ (text_message_content))
+  	    return self.reconstruct_secret_code(text_message_content, the_index)
+  	  end
   	end
   end
 
