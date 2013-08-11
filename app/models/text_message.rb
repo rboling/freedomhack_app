@@ -46,6 +46,8 @@ class TextMessage < ActiveRecord::Base
     end
   end
   def self.secret_code_find(the_user, the_code)
+  	puts "the_code"
+  	puts the_code
   	code_found = false
   	user_to_return = nil
   	refined_texts = TextMessage.select{|x| x.user_id != the_user.id}
