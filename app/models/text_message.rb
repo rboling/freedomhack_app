@@ -82,9 +82,9 @@ class TextMessage < ActiveRecord::Base
   end
 
   def self.send_confirmation_method(refined_number, the_sender, reassurance_message)
-  	@twilio_client_two = Twilio::REST::Client.new(twilio_sid, twilio_token)
+  	@twilio_client_two = Twilio::REST::Client.new("AC50070372767bdf26a090b08007bba07f", "8ae1cdbb08d55b99cab34174c3cd8bbb")
   	@twilio_client_two.account.sms.messages.create(
-  	  :from => "+1#{twilio_phone_number}",
+  	  :from => "+1#{"2245209581"}",
   	  :to => refined_number,
   	  :body => (reassurance_message)  	
   	  )   	
