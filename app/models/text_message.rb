@@ -47,25 +47,19 @@ class TextMessage < ActiveRecord::Base
   end
   def self.secret_code_find(the_user, the_code)
   	code_found = false
-  	refined_user_array = User.all.select{|x| x.id != the_user.id}
-  	refined_user_array.each do |user|
-  	  text_messages = user.text_messages
-  	  puts "the length"
-  	  puts text_messages.length
-  	  text_messages.each do |message|
-  	  	puts "SECRET CODE"
+  	refined_texts = TextMessage.select{|x| x.user_id != the_user.id}
+  	refined_texts.each do |message|
   	  	puts message.secret_code
-  	  	if message.secret_code == the_code
-  	  	  code_found = true
-  	  	  user_to_return = user.id
-  	  	end
-  	  end
-  	  if code_found
-  	  	return user_to_return
-  	  else
-  	  	return nil
-  	  end
+	  	if message.secret_code == the_code
+	  	  code_found = true
+	  	  user_to_return = message.user_id
+	  	end
   	end
+	  if code_found
+	  	return user_to_return
+	  else
+	  	return nil
+	  end
   end
 
   def self.reconstruct_secret_code(text_message, index)
