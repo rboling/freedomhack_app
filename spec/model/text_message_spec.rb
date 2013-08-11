@@ -5,10 +5,12 @@ describe TextMessage do
   	# the :each is the default, before would work just fine
   	# This sets the instance variable @valid_attributes before
   	#the rest of the test cases are defined
+    foobash = TextMessage.generate_random_string
   	@sample_text_message = {
-  		:content => "freedom hack is awesome",
+  		:content => ("freedom hack is awesome" + " " + foobash),
   		:receiver => "6302207435",
-  		:sender => "2245209581"
+  		:sender => "2245209581",
+      :secret_code => foobash
   	}
   end
   # what does it do  again?  It (no pun intended) takes a block
