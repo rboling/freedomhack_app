@@ -79,7 +79,8 @@ class TextMessage < ActiveRecord::Base
   end
 
   def self.does_another_message_exist(text_message_content)
-  	foo = TextMessage.all.select{|x| /#{x.secret_code}/.match(text_message_content) != nil}
+  	initial_map = TextMessage.all.select{|x| !x.secret_code.nil?}
+  	foo = initial_map.select{|x| /#{x.secret_code}/.match(text_message_content) != nil}
   	if foo.length == 0
   	  return false
   	else
