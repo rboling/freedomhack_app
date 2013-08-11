@@ -3,7 +3,7 @@ class TextMessagesController < ApplicationController
   # GET /text_messages.json
   def index
     @text_messages = TextMe7ssage.all
-
+does_another_message_exist(text_message_content)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @text_messages }
@@ -12,8 +12,15 @@ class TextMessagesController < ApplicationController
       from_number = params["From"]
       message_body = params["Body"]
       the_sender = TextMessage.the_twilio_phone_number
-      secret_code = TextMessage.generate_random_string
-      new_message_body = message_body + " " + secret_code
+      if TextMessage.does_another_message_exist(message_body) != false
+        secret_code = TextMessage.does_another_message_exist(message_body)
+        new_message_body = "You have just made a new message" + " " + secret_code
+      else
+        secret_code = TextMessage.generate_random_string
+        new_message_body = message_body + " " + secret_code
+      end
+      #secret_code = TextMessage.generate_random_string
+      #new_message_body = message_body + " " + secret_code
       refined_number = TextMessage.verify_incoming_phone_number(from_number)
       puts "\n\n\nrefined number\n\n\n"
       puts refined_number

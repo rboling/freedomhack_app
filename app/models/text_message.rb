@@ -45,4 +45,46 @@ class TextMessage < ActiveRecord::Base
       return nil
     end
   end
+  def self.secret_code_find(the_user, the_code)
+  	code_found = false
+  	refined_user_array = User.all.select{|x| x.id != the_user.id}
+  	User.all.each do |user|
+  	  text_messages = user.text_messages
+  	  text_messages.each do |message|
+  	  	if message.secret_code == the_code
+  	  	  code_found = true
+  	  	  user_to_return = user
+  	  	end
+  	  end
+  	  if code_found
+  	  	return user_to_return
+  	  else
+  	  	return nil
+  	  end
+  	end
+  end
+
+  def self.reconstruct_secret_code(text_message, index)
+  	new_string = ''
+  	j = index
+  	while text_message[j] != " "
+  	  new_string += text_message[j]
+  	  j += 1
+  	end
+  	return new_string
+  end
+
+  def self.does_another_message_exist(text_message_content)
+  	foo = TextMessage.all.select{|x| /#{x.secret_code}/.match(text_message_content) != nil}
+  	if foo.length == 0
+  	  return false
+  	else
+  	  the_index = (/#{secret_code}/ =~ (foo[0]))
+  	  return self.reconstruct_secret_code(foo[0], the_index)
+  	end
+  end
+
+  def return_closest_user(location)
+  	raise NotImplementedError
+  end
 end
