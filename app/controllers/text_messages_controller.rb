@@ -18,6 +18,8 @@ class TextMessagesController < ApplicationController
       user_to_use = User.where(:phone_number => (refined_number)).first
       if TextMessage.does_another_message_exist(message_body, user_to_use.id) != false
         secret_code = TextMessage.does_another_message_exist(message_body, user_to_use.id)
+        puts "the actual secret code"
+        puts secret_code
         new_message_body = message_body
         user_id = (TextMessage.secret_code_find(user_to_use, secret_code))
         puts "\n\n\nTHE USER ID\n\n\n\n"

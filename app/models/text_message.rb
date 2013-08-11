@@ -50,6 +50,8 @@ class TextMessage < ActiveRecord::Base
   	refined_user_array = User.all.select{|x| x.id != the_user.id}
   	refined_user_array.each do |user|
   	  text_messages = user.text_messages
+  	  puts "the length"
+  	  puts text_messages.length
   	  text_messages.each do |message|
   	  	puts "SECRET CODE"
   	  	puts message.secret_code
