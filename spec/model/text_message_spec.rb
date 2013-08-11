@@ -51,6 +51,9 @@ describe TextMessage do
   it "should return foofoo" do
     TextMessage.reconstruct_secret_code(@string_to_text, 0).should == "foofoo"
   end
+  it "shouldnt be pathalogical" do
+    TextMessage.does_another_message_exist("bobobobobo").should == false
+  end
 =begin
   it "should not save if first name is nil" do
     lambda {  

@@ -13,6 +13,8 @@ class TextMessagesController < ApplicationController
       the_sender = TextMessage.the_twilio_phone_number 
       puts "\n\n\nmessage body \n\n\n\n"
       puts message_body
+      puts "\n\n\n\n\nARE WE BREAKING\n\n\n\n\n"
+      puts TextMessage.does_another_message_exist(message_body)
       if TextMessage.does_another_message_exist(message_body) != false
         puts "\n\n\nin here \n\n\n"
         secret_code = TextMessage.does_another_message_exist(message_body)
