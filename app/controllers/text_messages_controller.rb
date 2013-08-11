@@ -22,12 +22,6 @@ class TextMessagesController < ApplicationController
         puts secret_code
         new_message_body = message_body
         user_id = (TextMessage.secret_code_find(user_to_use, secret_code))
-        puts "\n\n\nTHE USER ID\n\n\n\n"
-        if user_id.nil?
-          puts "\n\n\n\n\nUSER ID IS NIL\n\n\n\n"
-        else
-          puts "\n\n\nUSER ID IS NOT NIL\n\n\n"
-        end
         the_phone_number = User.where(:id => user_id).first.phone_number
         TextMessage.send_confirmation_method(refined_number, the_sender, reassurance_message)
       else
@@ -35,18 +29,7 @@ class TextMessagesController < ApplicationController
         new_message_body = "You have just made a new message.  Reply back with the code at the end for more info" + " " + secret_code
         user_id = (User.where(:phone_number => (refined_number)).first).id
         the_phone_number = from_number
-        if location.nil?
-          puts "\n\n\n\nBASHBASBASHBASH\n\n\n\n"
-        else
-          puts "\n\n\n\nFOFOFOFOFOFOFOFOF\n\n\n\n\n"
-          puts location
-          puts location.class
-          if location == ""
-            puts "\n\n\nDANCE ALL NIGHT\n\n"
-          end
-        end
         TextMessage.find_a_response(location, secret_code)
-        puts "\n\n\n\nDID WE FIND A RESPONSE\n\n\n\n"
       end
       #secret_code = TextMessage.generate_random_string
       #new_message_body = message_body + " " + secret_code
