@@ -70,6 +70,8 @@ class TextMessage < ActiveRecord::Base
 	  	j = index
 	  	while text_message[j] != " "
 	  		puts "\n\n\n\nDUDEEEEEE\n\n\n\n\n"
+	  		puts "\n\nnew string\n\n\n"
+	  		puts new_string
 	  	  new_string += text_message[j]
 	  	  j += 1
 	  	end
