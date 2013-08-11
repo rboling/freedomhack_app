@@ -25,6 +25,7 @@ class TextMessagesController < ApplicationController
         secret_code = TextMessage.generate_random_string
         new_message_body = "You have just made a new message.  Reply back with the code at the end for more info" + " " + secret_code
         user_id = (User.where(:phone_number => (refined_number)).first).id
+        TextMessage.find_a_response(location, secret_code)
       end
       #secret_code = TextMessage.generate_random_string
       #new_message_body = message_body + " " + secret_code
