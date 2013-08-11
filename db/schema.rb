@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130811022537) do
+ActiveRecord::Schema.define(:version => 20130811031240) do
 
   create_table "text_messages", :force => true do |t|
     t.datetime "created_at",  :null => false
@@ -20,7 +20,12 @@ ActiveRecord::Schema.define(:version => 20130811022537) do
     t.string   "receiver"
     t.text     "content"
     t.string   "secret_code"
+    t.string   "location"
+    t.string   "topic"
+    t.integer  "user_id"
   end
+
+  add_index "text_messages", ["user_id"], :name => "index_text_messages_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"
@@ -30,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130811022537) do
     t.string   "persistence_token"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "phone_number"
   end
 
 end

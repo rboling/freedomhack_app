@@ -2099,3 +2099,411 @@ Migrating to AddSecretCodeToTextMessages (20130811022537)
 
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.8ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130810151507)
+Migrating to CreateTextMessages (20130810200014)
+Migrating to AddSenderAndReceiverAndContentToTextMessages (20130810200329)
+Migrating to AddSecretCodeToTextMessages (20130811022537)
+Migrating to AddLocationToTextMessages (20130811030034)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (1.2ms)[0m  [1mALTER TABLE "text_messages" ADD COLUMN "location" character varying(255)[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130811030034')
+  [1m[36m (119.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddTopicToTextMessages (20130811030107)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "text_messages" ADD COLUMN "topic" character varying(255)[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130811030107')
+  [1m[36m (25.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36mPK and serial sequence (4.1ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"text_messages"'::regclass
+[0m
+  [1m[35m (3.5ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'text_messages'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36mPK and serial sequence (4.2ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"users"'::regclass
+[0m
+  [1m[35m (2.1ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'users'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.7ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130810151507)
+Migrating to CreateTextMessages (20130810200014)
+Migrating to AddSenderAndReceiverAndContentToTextMessages (20130810200329)
+Migrating to AddSecretCodeToTextMessages (20130811022537)
+Migrating to AddLocationToTextMessages (20130811030034)
+Migrating to AddTopicToTextMessages (20130811030107)
+Migrating to AddUserToTextMessages (20130811030606)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (20.1ms)[0m  [1mALTER TABLE "text_messages" ADD COLUMN "user" belongs_to[0m
+PG::Error: ERROR:  type "belongs_to" does not exist
+LINE 1: ALTER TABLE "text_messages" ADD COLUMN "user" belongs_to
+                                                      ^
+: ALTER TABLE "text_messages" ADD COLUMN "user" belongs_to
+  [1m[35m (0.4ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.7ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130810151507)
+Migrating to CreateTextMessages (20130810200014)
+Migrating to AddSenderAndReceiverAndContentToTextMessages (20130810200329)
+Migrating to AddSecretCodeToTextMessages (20130811022537)
+Migrating to AddLocationToTextMessages (20130811030034)
+Migrating to AddTopicToTextMessages (20130811030107)
+Migrating to AddUserToTextMessages (20130811030606)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "text_messages" ADD COLUMN "user_id" integer[0m
+  [1m[35m (4.6ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'text_messages'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36m (104.5ms)[0m  [1mCREATE INDEX "index_text_messages_on_user_id" ON "text_messages" ("user_id")[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130811030606')
+  [1m[36m (34.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36mPK and serial sequence (2.8ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"text_messages"'::regclass
+[0m
+  [1m[35m (3.2ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'text_messages'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36mColumns for index index_text_messages_on_user_id on text_messages (0.7ms)[0m  [1m SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 16522
+ AND a.attnum IN (10)
+[0m
+  [1m[35mPK and serial sequence (2.6ms)[0m   SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"users"'::regclass
+
+  [1m[36m (1.4ms)[0m  [1m SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'users'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.8ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130810151507)
+Migrating to CreateTextMessages (20130810200014)
+Migrating to AddSenderAndReceiverAndContentToTextMessages (20130810200329)
+Migrating to AddSecretCodeToTextMessages (20130811022537)
+Migrating to AddLocationToTextMessages (20130811030034)
+Migrating to AddTopicToTextMessages (20130811030107)
+Migrating to AddUserToTextMessages (20130811030606)
+Migrating to AddPhoneNumberToUsers (20130811031240)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "users" ADD COLUMN "phone_number" character varying(255)[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130811031240')
+  [1m[36m (141.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36mPK and serial sequence (9.5ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"text_messages"'::regclass
+[0m
+  [1m[35m (6.0ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'text_messages'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36mColumns for index index_text_messages_on_user_id on text_messages (1.0ms)[0m  [1m SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 16522
+ AND a.attnum IN (10)
+[0m
+  [1m[35mPK and serial sequence (4.3ms)[0m   SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"users"'::regclass
+
+  [1m[36m (2.1ms)[0m  [1m SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'users'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 365ms (Views: 364.8ms | ActiveRecord: 0.0ms)
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (9ms)
+Served asset /text_messages.css - 200 OK (1ms)
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (8ms)
+Served asset /home.css - 304 Not Modified (2ms)
+Served asset /user_sessions.css - 304 Not Modified (4ms)
+Served asset /users.css - 304 Not Modified (2ms)
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+Served asset /jquery.js - 304 Not Modified (5ms)
+Served asset /text_messages.js - 200 OK (1ms)
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (3ms)
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (4ms)
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (3ms)
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (3ms)
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (3ms)
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (4ms)
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (45ms)
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap.js - 304 Not Modified (19ms)
+Served asset /bootstrap.js - 304 Not Modified (1ms)
+Served asset /home.js - 304 Not Modified (1ms)
+Served asset /user_sessions.js - 304 Not Modified (1ms)
+Served asset /users.js - 304 Not Modified (1ms)
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (6.0ms)
+  Rendered users/new.html.erb within layouts/application (136.6ms)
+Completed 200 OK in 195ms (Views: 184.8ms | ActiveRecord: 0.0ms)
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (5ms)
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (1ms)
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+Served asset /home.css - 304 Not Modified (1ms)
+Served asset /user_sessions.css - 304 Not Modified (0ms)
+Served asset /users.css - 304 Not Modified (2ms)
+Served asset /jquery.js - 304 Not Modified (2ms)
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (1ms)
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap.js - 304 Not Modified (3ms)
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+Served asset /home.js - 304 Not Modified (0ms)
+Served asset /user_sessions.js - 304 Not Modified (0ms)
+Served asset /users.js - 304 Not Modified (0ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ek8pnq6TXSYyXiobyHhE2X9K30T0wqtk1JWyaNg7XYo=", "user"=>{"username"=>"foo", "email"=>"rboling@college.harvard.edu", "phone_number"=>"6302207435", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (102.8ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('rboling@college.harvard.edu') LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('foo') LIMIT 1[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."persistence_token" = 'b97d84b100b0e155cacc9eeb78ba25d2e4757ec26ff38d4e17d2e03940c1bf450210d9ab8d0bf51ed3c11f8bc5655bf3b443a1f22752b7faf8e2bcb715c397eb' LIMIT 1
+  [1m[36mSQL (55.6ms)[0m  [1mINSERT INTO "users" ("created_at", "crypted_password", "email", "password_salt", "persistence_token", "phone_number", "updated_at", "username") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["created_at", Sun, 11 Aug 2013 03:18:22 UTC +00:00], ["crypted_password", "d82512b8348d8b8cdedc94fad99c6f8b63866942c9eca6d8b3926c9cffdaf4c4f55f1abee9afb1cc6037446725e9c30b18a647cc41bfffa845fc0d505c9b8927"], ["email", "rboling@college.harvard.edu"], ["password_salt", "Cfip1DDRrh2iep7GBZzw"], ["persistence_token", "b97d84b100b0e155cacc9eeb78ba25d2e4757ec26ff38d4e17d2e03940c1bf450210d9ab8d0bf51ed3c11f8bc5655bf3b443a1f22752b7faf8e2bcb715c397eb"], ["phone_number", "6302207435"], ["updated_at", Sun, 11 Aug 2013 03:18:22 UTC +00:00], ["username", "foo"]]
+  [1m[35m (299.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 671ms (ActiveRecord: 459.9ms)
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (110.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 143ms (Views: 30.1ms | ActiveRecord: 110.3ms)
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (9ms)
+Served asset /home.css - 304 Not Modified (0ms)
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (3ms)
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+Served asset /users.css - 304 Not Modified (0ms)
+Served asset /user_sessions.css - 304 Not Modified (1ms)
+Served asset /jquery.js - 304 Not Modified (3ms)
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (1ms)
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (1ms)
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap.js - 304 Not Modified (10ms)
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+Served asset /home.js - 304 Not Modified (0ms)
+Served asset /user_sessions.js - 304 Not Modified (0ms)
+Served asset /users.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.8ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130810151507)
+Migrating to CreateTextMessages (20130810200014)
+Migrating to AddSenderAndReceiverAndContentToTextMessages (20130810200329)
+Migrating to AddSecretCodeToTextMessages (20130811022537)
+Migrating to AddLocationToTextMessages (20130811030034)
+Migrating to AddTopicToTextMessages (20130811030107)
+Migrating to AddUserToTextMessages (20130811030606)
+Migrating to AddPhoneNumberToUsers (20130811031240)
+  [1m[35m (0.5ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36mPK and serial sequence (3.1ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"text_messages"'::regclass
+[0m
+  [1m[35m (3.1ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'text_messages'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36mColumns for index index_text_messages_on_user_id on text_messages (0.7ms)[0m  [1m SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 16522
+ AND a.attnum IN (10)
+[0m
+  [1m[35mPK and serial sequence (2.7ms)[0m   SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"users"'::regclass
+
+  [1m[36m (1.6ms)[0m  [1m SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'users'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+[0m

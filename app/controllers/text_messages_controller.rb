@@ -14,10 +14,12 @@ class TextMessagesController < ApplicationController
       the_sender = TextMessage.the_twilio_phone_number
       secret_code = TextMessage.generate_random_string
       new_message_body = message_body + " " + secret_code
+      user_id = (User.where(:phone_number => from_number).first).id
       new_message = TextMessage.create({ :content => new_message_body,
       :receiver => from_number,
       :sender => the_sender,
-      :secret_code => secret_code
+      :secret_code => secret_code,
+      :user_id => user_id
     })
       new_message.send_text_message
     rescue
