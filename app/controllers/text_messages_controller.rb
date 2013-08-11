@@ -19,7 +19,7 @@ class TextMessagesController < ApplicationController
       if TextMessage.does_another_message_exist(message_body, user_to_use.id) != false
         secret_code = TextMessage.does_another_message_exist(message_body, user_to_use.id)
         new_message_body = message_body
-        user_id = TextMessage.secret_code_find(user_to_use, secret_code)
+        user_id = (TextMessage.secret_code_find(user_to_use, secret_code))
         the_phone_number = User.where(:id => user_id).first.phone_number
         TextMessage.send_confirmation_method(refined_number, the_sender, reassurance_message)
       else

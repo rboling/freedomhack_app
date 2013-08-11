@@ -53,7 +53,7 @@ class TextMessage < ActiveRecord::Base
   	  text_messages.each do |message|
   	  	if message.secret_code == the_code
   	  	  code_found = true
-  	  	  user_to_return = user
+  	  	  user_to_return = user.id
   	  	end
   	  end
   	  if code_found
