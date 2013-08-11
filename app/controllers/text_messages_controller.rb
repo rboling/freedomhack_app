@@ -15,6 +15,8 @@ class TextMessagesController < ApplicationController
       secret_code = TextMessage.generate_random_string
       new_message_body = message_body + " " + secret_code
       refined_number = TextMessage.verify_incoming_phone_number(from_number)
+      puts "\n\n\nrefined number\n\n\n"
+      puts refined_number
       user_id = (User.where(:phone_number => (refined_number)).first).id
       new_message = TextMessage.create({ :content => new_message_body,
       :receiver => from_number,
