@@ -54,6 +54,10 @@ describe TextMessage do
   it "shouldnt be pathalogical" do
     TextMessage.does_another_message_exist("bobobobobo").should == false
   end
+
+  it "should go through bro" do
+    TextMessage.find_a_response(nil, "FFFFF")
+  end
 =begin
   it "should not save if first name is nil" do
     lambda {  
