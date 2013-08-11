@@ -56,7 +56,11 @@ class TextMessage < ActiveRecord::Base
   	  	puts message.secret_code
 	  	if message.secret_code == the_code
 	  		puts "I made it"
-	  	  code_found = true
+	  		puts "the code in made it"
+	  		puts message.secret_code
+	  	  code_found = true 
+	  	  puts "the user_id"
+	  	  puts message.user_id
 	  	  user_to_return = message.user_id
 	  	end
   	end
