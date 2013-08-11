@@ -1,6 +1,6 @@
 class TextMessage < ActiveRecord::Base
   attr_accessible :content, :receiver, :sender, :secret_code, :user_id
-  attr_accessor :content, :receiver, :sender, :secret_code
+  #attr_accessor :content, :receiver, :sender
   belongs_to :user
   def twilio_sid
   	"AC50070372767bdf26a090b08007bba07f"

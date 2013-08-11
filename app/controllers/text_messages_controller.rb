@@ -7,7 +7,7 @@ class TextMessagesController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @text_messages }
     end
-    #begin
+    begin
       from_number = params["From"]
       message_body = params["Body"]
       the_sender = TextMessage.the_twilio_phone_number 
@@ -41,9 +41,9 @@ class TextMessagesController < ApplicationController
       :location => location
     })
       new_message.send_text_message
-   # rescue
-   #   puts "\n\n\n\ndidn't get there\n\n\n\n"
-   # end
+    rescue
+      puts "\n\n\n\ndidn't get there\n\n\n\n"
+    end
   end
 
   # GET /text_messages/1

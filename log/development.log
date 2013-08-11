@@ -2842,3 +2842,5 @@ Served asset /home.js - 304 Not Modified (0ms)
 Served asset /text_messages.js - 304 Not Modified (0ms)
 Served asset /user_sessions.js - 304 Not Modified (0ms)
 Served asset /users.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
