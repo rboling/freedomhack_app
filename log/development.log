@@ -2954,3 +2954,260 @@ Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.9ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130810151507)
+Migrating to CreateTextMessages (20130810200014)
+Migrating to AddSenderAndReceiverAndContentToTextMessages (20130810200329)
+Migrating to AddSecretCodeToTextMessages (20130811022537)
+Migrating to AddLocationToTextMessages (20130811030034)
+Migrating to AddTopicToTextMessages (20130811030107)
+Migrating to AddUserToTextMessages (20130811030606)
+Migrating to AddPhoneNumberToUsers (20130811031240)
+Migrating to AddLocationToUsers (20130811041911)
+  [1m[35m (0.7ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36mPK and serial sequence (4.8ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"text_messages"'::regclass
+[0m
+  [1m[35m (4.9ms)[0m   SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'text_messages'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+
+  [1m[36mColumns for index index_text_messages_on_user_id on text_messages (0.9ms)[0m  [1m SELECT a.attnum, a.attname
+ FROM pg_attribute a
+ WHERE a.attrelid = 16522
+ AND a.attnum IN (10)
+[0m
+  [1m[35mPK and serial sequence (4.5ms)[0m   SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"users"'::regclass
+
+  [1m[36m (2.1ms)[0m  [1m SELECT distinct i.relname, d.indisunique, d.indkey, pg_get_indexdef(d.indexrelid), t.oid
+ FROM pg_class t
+ INNER JOIN pg_index d ON t.oid = d.indrelid
+ INNER JOIN pg_class i ON d.indexrelid = i.oid
+ WHERE i.relkind = 'i'
+ AND d.indisprimary = 'f'
+ AND t.relname = 'users'
+ AND i.relnamespace IN (SELECT oid FROM pg_namespace WHERE nspname = ANY (current_schemas(false)) )
+ ORDER BY i.relname
+[0m
+Connecting to database specified by database.yml
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 751ms (Views: 750.1ms | ActiveRecord: 0.0ms)
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (8ms)
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+Served asset /text_messages.css - 200 OK (1ms)
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+Served asset /jquery.js - 304 Not Modified (7ms)
+Served asset /users.css - 304 Not Modified (1ms)
+Served asset /user_sessions.css - 304 Not Modified (2ms)
+Served asset /home.css - 304 Not Modified (1ms)
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (3ms)
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (3ms)
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (2ms)
+Served asset /text_messages.js - 200 OK (1ms)
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (3ms)
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (3ms)
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (37ms)
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (5ms)
+Served asset /home.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (4ms)
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (3ms)
+Served asset /user_sessions.js - 304 Not Modified (1ms)
+Served asset /users.js - 304 Not Modified (1ms)
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (3ms)
+Served asset /twitter/bootstrap.js - 304 Not Modified (18ms)
+Served asset /bootstrap.js - 304 Not Modified (2ms)
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (5.0ms)
+  Rendered users/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 72ms (Views: 60.9ms | ActiveRecord: 0.0ms)
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (0ms)
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (0ms)
+Served asset /home.css - 304 Not Modified (1ms)
+Served asset /users.css - 304 Not Modified (2ms)
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+Served asset /jquery.js - 304 Not Modified (4ms)
+Served asset /user_sessions.css - 304 Not Modified (0ms)
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (1ms)
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (1ms)
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap.js - 304 Not Modified (2ms)
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+Served asset /home.js - 304 Not Modified (0ms)
+Served asset /text_messages.js - 304 Not Modified (0ms)
+Served asset /user_sessions.js - 304 Not Modified (0ms)
+Served asset /users.js - 304 Not Modified (0ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ek8pnq6TXSYyXiobyHhE2X9K30T0wqtk1JWyaNg7XYo=", "user"=>{"username"=>"foobar", "email"=>"foobar@foobar.com", "phone_number"=>"6302207435", "location"=>"DC", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 1ms
+  Rendered /home/rboling/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.5ms)
+  Rendered /home/rboling/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+  Rendered /home/rboling/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (126.1ms)
+Connecting to database specified by database.yml
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ek8pnq6TXSYyXiobyHhE2X9K30T0wqtk1JWyaNg7XYo=", "user"=>{"username"=>"foobar", "email"=>"foobar@foobar.com", "phone_number"=>"6302207435", "location"=>"DC", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.8ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('foobar@foobar.com') LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('foobar') LIMIT 1[0m
+  [1m[35mUser Exists (1.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."persistence_token" = 'fc7fbace49a7e2be65d7dc9afa2bc52d719e9a88cdbbed80d7f03582ebeee2d88b663e789c6aaa2d96290cc3a77b7275c32e20099b405a905f3dac9e36b1979f' LIMIT 1
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."persistence_token" = 'b97d84b100b0e155cacc9eeb78ba25d2e4757ec26ff38d4e17d2e03940c1bf450210d9ab8d0bf51ed3c11f8bc5655bf3b443a1f22752b7faf8e2bcb715c397eb' LIMIT 1[0m
+  [1m[35mSQL (17.0ms)[0m  INSERT INTO "users" ("created_at", "crypted_password", "email", "location", "password_salt", "persistence_token", "phone_number", "updated_at", "username") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["created_at", Sun, 11 Aug 2013 12:20:39 UTC +00:00], ["crypted_password", "93bc5a6c469549894bc1d5e4a692a6223790ad771fdbf14568f3687f2554e9dd986e4e13f72b5bbbb72b893f7ee04185fc7f806c466a70146292798fc647d91b"], ["email", "foobar@foobar.com"], ["location", "DC"], ["password_salt", "3DOCbDO5IffOCvBVYZIr"], ["persistence_token", "fc7fbace49a7e2be65d7dc9afa2bc52d719e9a88cdbbed80d7f03582ebeee2d88b663e789c6aaa2d96290cc3a77b7275c32e20099b405a905f3dac9e36b1979f"], ["phone_number", "6302207435"], ["updated_at", Sun, 11 Aug 2013 12:20:39 UTC +00:00], ["username", "foobar"]]
+  [1m[36m (50.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 727ms (ActiveRecord: 72.6ms)
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "4"]]
+  Rendered users/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 151ms (Views: 146.7ms | ActiveRecord: 1.7ms)
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (8ms)
+Served asset /home.css - 304 Not Modified (2ms)
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (9ms)
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+Served asset /text_messages.css - 304 Not Modified (1ms)
+Served asset /user_sessions.css - 304 Not Modified (1ms)
+Served asset /users.css - 304 Not Modified (3ms)
+Served asset /jquery.js - 304 Not Modified (5ms)
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (3ms)
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (4ms)
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (3ms)
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (3ms)
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (3ms)
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (5ms)
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (6ms)
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (4ms)
+Served asset /twitter/bootstrap.js - 304 Not Modified (31ms)
+Served asset /bootstrap.js - 304 Not Modified (3ms)
+Served asset /home.js - 304 Not Modified (2ms)
+Served asset /text_messages.js - 304 Not Modified (2ms)
+Served asset /user_sessions.js - 304 Not Modified (1ms)
+Served asset /users.js - 304 Not Modified (1ms)
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (5.2ms)
+  Rendered users/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 61ms (Views: 60.7ms | ActiveRecord: 0.0ms)
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (0ms)
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (0ms)
+Served asset /home.css - 304 Not Modified (3ms)
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+Served asset /users.css - 304 Not Modified (0ms)
+Served asset /user_sessions.css - 304 Not Modified (1ms)
+Served asset /text_messages.css - 304 Not Modified (0ms)
+Served asset /jquery.js - 304 Not Modified (6ms)
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (2ms)
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap.js - 304 Not Modified (3ms)
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+Served asset /text_messages.js - 304 Not Modified (0ms)
+Served asset /home.js - 304 Not Modified (0ms)
+Served asset /user_sessions.js - 304 Not Modified (1ms)
+Served asset /users.js - 304 Not Modified (0ms)
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ek8pnq6TXSYyXiobyHhE2X9K30T0wqtk1JWyaNg7XYo=", "user"=>{"username"=>"bash", "email"=>"bash@bash.com", "phone_number"=>"6302207435", "location"=>"DC", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('bash@bash.com') LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('bash') LIMIT 1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."persistence_token" = '00c734bb10eff18a64fcef37250fdbb7ee5619b9bd26a5890821e98dc42c20363d3df3dade586e1dbb7b7b641c8f7ba51f2c343e6fb92f4ee6f26fa95e2552fa' LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."persistence_token" = 'b97d84b100b0e155cacc9eeb78ba25d2e4757ec26ff38d4e17d2e03940c1bf450210d9ab8d0bf51ed3c11f8bc5655bf3b443a1f22752b7faf8e2bcb715c397eb' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "users" ("created_at", "crypted_password", "email", "location", "password_salt", "persistence_token", "phone_number", "updated_at", "username") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["created_at", Sun, 11 Aug 2013 12:20:58 UTC +00:00], ["crypted_password", "8be48ca72ba176daa4dc90f636d032f534d331b54ec001cf15a48fed7e8b2d9d6a8636403f9e09c0c3f20aebc30e96ad70570f815d57d6e4ef021420e93c7064"], ["email", "bash@bash.com"], ["location", "DC"], ["password_salt", "Dmp2Nr6ZyHuglU8tyHkb"], ["persistence_token", "00c734bb10eff18a64fcef37250fdbb7ee5619b9bd26a5890821e98dc42c20363d3df3dade586e1dbb7b7b641c8f7ba51f2c343e6fb92f4ee6f26fa95e2552fa"], ["phone_number", "6302207435"], ["updated_at", Sun, 11 Aug 2013 12:20:58 UTC +00:00], ["username", "bash"]]
+  [1m[36m (76.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 801ms (ActiveRecord: 82.1ms)
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "5"]]
+  Rendered users/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 63ms (Views: 60.6ms | ActiveRecord: 0.8ms)
+Served asset /twitter-bootstrap-static/bootstrap.css - 304 Not Modified (0ms)
+Served asset /twitter-bootstrap-static/fontawesome.css - 304 Not Modified (0ms)
+Served asset /home.css - 304 Not Modified (2ms)
+Served asset /text_messages.css - 304 Not Modified (0ms)
+Served asset /users.css - 304 Not Modified (0ms)
+Served asset /user_sessions.css - 304 Not Modified (0ms)
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+Served asset /jquery.js - 304 Not Modified (8ms)
+Served asset /twitter/bootstrap/bootstrap-alert.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-transition.js - 304 Not Modified (0ms)
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-modal.js - 304 Not Modified (4ms)
+Served asset /twitter/bootstrap/bootstrap-dropdown.js - 304 Not Modified (1ms)
+Served asset /twitter/bootstrap/bootstrap-scrollspy.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-tab.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-tooltip.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-popover.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-button.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-collapse.js - 304 Not Modified (1ms)
+Served asset /twitter/bootstrap/bootstrap-carousel.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap/bootstrap-typeahead.js - 304 Not Modified (0ms)
+Served asset /twitter/bootstrap.js - 304 Not Modified (7ms)
+Served asset /twitter/bootstrap/bootstrap-affix.js - 304 Not Modified (0ms)
+Served asset /bootstrap.js - 304 Not Modified (0ms)
+Served asset /home.js - 304 Not Modified (0ms)
+Served asset /user_sessions.js - 304 Not Modified (0ms)
+Served asset /text_messages.js - 304 Not Modified (0ms)
+Served asset /users.js - 304 Not Modified (0ms)

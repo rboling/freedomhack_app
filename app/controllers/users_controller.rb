@@ -41,6 +41,16 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    @phone_number = params[:user][:phone_number]
+    if !@phone_number.nil?
+      message = "Welcome to North Star"
+      @twilio_client_four = Twilio::REST::Client.new("AC50070372767bdf26a090b08007bba07f", "8ae1cdbb08d55b99cab34174c3cd8bbb")
+      @twilio_client_four.account.sms.messages.create(
+        :from => "+1#{"2245209581"}",
+        :to => @phone_number,
+        :body => (message)    
+      )   
+    end
 
     respond_to do |format|
       if @user.save
