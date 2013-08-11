@@ -8,7 +8,7 @@ class TextMessagesController < ApplicationController
       format.json { render json: @text_messages }
     end
 
-    begin
+   # begin
       reassurance_message = "We'll put you in touch shortly"
       from_number = params["From"]
       message_body = params["Body"]
@@ -37,9 +37,9 @@ class TextMessagesController < ApplicationController
       :location => location
     })
       new_message.send_text_message
-    rescue
-      puts "\n\n\n\ndidn't get there\n\n\n\n"
-    end
+    #rescue
+    #  puts "\n\n\n\ndidn't get there\n\n\n\n"
+    #end
   end
 
   # GET /text_messages/1
