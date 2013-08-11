@@ -106,8 +106,11 @@ class TextMessage < ActiveRecord::Base
   def self.find_a_response(location, secret_code)
   	puts "\n\n\n\nDID WE GET IN HERE\n\n\n\n\n\n"
   	the_user = User.where(:location => location)
+  	puts "\n\n\n\nTHE USER\n\n\n\n\n"
+  	puts the_user
   	non_nil_user = the_user.find{|x| x.phone_number != nil}
   	puts "\n\n\n\n\n\nDID WE GET PAST NON NIL USER\n\n\n\n\n\n"
+  	puts "\n\n\nNON NIL USER\n\n\n\n"
   	if !non_nil_user.nil?
   		puts "WE ARE HERE BRO"
   	  the_number = non_nil_user.phone_number
