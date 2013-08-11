@@ -14,9 +14,11 @@ class TextMessagesController < ApplicationController
       puts "\n\n\nmessage body \n\n\n\n"
       puts message_body
       if TextMessage.does_another_message_exist(message_body) != false
+        puts "\n\n\nin here \n\n\n"
         secret_code = TextMessage.does_another_message_exist(message_body)
         new_message_body = "You have just made a new message" + " " + secret_code
       else
+        puts "\n\nnot in here\n\n"
         secret_code = TextMessage.generate_random_string
         new_message_body = message_body + " " + secret_code
       end
