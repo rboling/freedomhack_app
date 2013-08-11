@@ -10,7 +10,9 @@ class TextMessagesController < ApplicationController
     begin
       from_number = params["From"]
       message_body = params["Body"]
-      the_sender = TextMessage.the_twilio_phone_number
+      the_sender = TextMessage.the_twilio_phone_number 
+      puts "\n\n\nmessage body \n\n\n\n"
+      puts message_body
       if TextMessage.does_another_message_exist(message_body) != false
         secret_code = TextMessage.does_another_message_exist(message_body)
         new_message_body = "You have just made a new message" + " " + secret_code
