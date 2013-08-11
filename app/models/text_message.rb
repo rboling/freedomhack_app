@@ -65,13 +65,17 @@ class TextMessage < ActiveRecord::Base
   end
 
   def self.reconstruct_secret_code(text_message, index)
-  	new_string = ''
-  	j = index
-  	while text_message[j] != " "
-  	  new_string += text_message[j]
-  	  j += 1
-  	end
-  	return new_string
+  	if !text_message.nil?
+	  	new_string = ''
+	  	j = index
+	  	while text_message[j] != " "
+	  	  new_string += text_message[j]
+	  	  j += 1
+	  	end
+	  	return new_string
+	  else
+	  	return "FFFFF"
+	  end
   end
 
   def self.does_another_message_exist(text_message_content)
