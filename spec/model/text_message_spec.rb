@@ -7,7 +7,7 @@ describe TextMessage do
   	#the rest of the test cases are defined
   	@sample_text_message = {
   		:content => "freedom hack is awesome",
-  		:receiver => "7036222002",
+  		:receiver => "6302207435",
   		:sender => "2245209581"
   	}
   end

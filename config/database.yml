@@ -3,23 +3,23 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
-#development:
-#  adapter: postgresql
-#  encoding: unicode
-#  database: freedomhack_app
-#  host: localhost
-#  pool: 5
-#  username: rboling
-#  password: beethoven3
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: freedomhack_app
+  host: localhost
+  pool: 5
+  username: rboling
+  password: beethoven3
 
-#test:
-#  adapter: postgresql
-#  encoding: unicode
-#  database: freedomhack_app_test
-#  host: localhost
-#  pool: 5
-#  username: rboling
-#  password: beethoven3
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: freedomhack_app_test
+  host: localhost
+  pool: 5
+  username: rboling
+  password: beethoven3
 
 production:
   adapter: postgresql

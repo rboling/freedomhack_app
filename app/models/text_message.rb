@@ -9,6 +9,10 @@ class TextMessage < ActiveRecord::Base
   	"8ae1cdbb08d55b99cab34174c3cd8bbb"
   end
 
+  def self.the_twilio_phone_number
+  	"2245209581"  	
+  end
+
   def twilio_phone_number
   	"2245209581"
   end

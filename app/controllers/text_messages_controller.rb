@@ -8,6 +8,17 @@ class TextMessagesController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @text_messages }
     end
+    begin
+      from_number = params["From"]
+      message_body = params["Body"]
+      the_sender = TextMessage.the_twilio_phone_number
+      new_message = TextMessage.create({ :content => message_body,
+      :receiver => from_number,
+      :sender => the_sender})
+      new_message.send_text_message
+    rescue
+      puts "\n\n\n\ndidn't get there\n\n\n\n"
+    end
   end
 
   # GET /text_messages/1
@@ -68,6 +79,8 @@ class TextMessagesController < ApplicationController
       end
     end
   end
+
+  def 
 
   # DELETE /text_messages/1
   # DELETE /text_messages/1.json
