@@ -2508,3 +2508,4 @@ Migrating to AddPhoneNumberToUsers (20130811031240)
  ORDER BY i.relname
 [0m
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml

@@ -19,6 +19,7 @@ class TextMessagesController < ApplicationController
       puts refined_number
       puts refined_number.class
       user_id = (User.where(:phone_number => (refined_number)).first).id
+      puts "\n\n\n\ndo I get after here bro\n\n\n"
       new_message = TextMessage.create({ :content => new_message_body,
       :receiver => from_number,
       :sender => the_sender,
